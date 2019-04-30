@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% for waste in wastes %}
+  <div class="media content-section" style="float: left; width: 50%;">
+    <div class="media">
+      <img class="account-img" src="{{ waste.image.url }}">
+      <div class="media-body">
+        <h3 class="code-title">{{ waste.title }} </h3>
+        <p class = "text-secondary">{{waste.description}} </p>
+        <p class = "text-secondary">{{waste.utilization}} </p>
+        <div class = "text-secondary">Код переробки: <img class="account-img" src="{{ waste.code.image.url }} " style = "width:60px;height:60px;"></div>
+      </div>
+    </div>
+  </div>
+{%endfor%}
+{% endblock content %}

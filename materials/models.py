@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.contenttypes.models import ContentType
 from PIL import Image
 
 class Type(models.Model):
@@ -19,12 +18,14 @@ class Code(models.Model):
 	def __str__(self):
 		return self.abbreviation
 
+class Waste(models.Model):
+	code = models.ForeignKey(Code, on_delete = models.DO_NOTHING)
+	id_waste = models.IntegerField(primary_key=True)
+	title = models.CharField(max_length=100)
+	description = models.TextField()
+	utilization = models.TextField()
+	image = models.ImageField(default="default", upload_to='material_pics')
 
-	# def save(self):
- #        super().save()
- #        img = Image.open(self.image.path)
- #        if img.height > 300 or img.width > 300:
- #            output_size = (300, 300)
- #            img.thumbnail(output_size)
- #            img.save(self.image.path)
+	def __str__(self):
+		return self.title
 

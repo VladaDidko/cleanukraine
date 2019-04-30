@@ -41,3 +41,4 @@ def profile(request):
     }
 
     return render(request, 'User/profile.html', context)
+

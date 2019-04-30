@@ -22,18 +22,18 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">
+          <a class="navbar-brand mr-4" href="{% url 'post_list' %}">
             <img id = "leaf" src="{% static "blog/leaf.png" %}"/></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{% url 'blog-home' %}">Блог</a>
+              <a class="nav-item nav-link" href="{% url 'post_list' %}">Блог</a>
               <a class="nav-item nav-link" href="{% url 'codes' %}">Коди переробки</a>
-              <a class="nav-item nav-link" href="{% url 'blog-home' %}">Предмети</a>
-              <a class="nav-item nav-link" href="{% url 'blog-home' %}">Пункти прийому</a>
-              <a class="nav-item nav-link" href="{% url 'blog-home' %}">Тести</a>
+              <a class="nav-item nav-link" href="{% url 'wastes' %}">Предмети</a>
+              <a class="nav-item nav-link" href="{% url 'post_list' %}">Пункти прийому</a>
+              <a class="nav-item nav-link" href="{% url 'post_list' %}">Тести</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
