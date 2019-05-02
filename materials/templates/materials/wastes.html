@@ -1,16 +1,36 @@
 {% extends "blog/base.html" %}
 {% block content %}
-{% for waste in wastes %}
-  <div class="media content-section" style="float: left; width: 50%;">
-    <div class="media">
-      <img class="account-img" src="{{ waste.image.url }}">
-      <div class="media-body">
-        <h3 class="code-title">{{ waste.title }} </h3>
-        <p class = "text-secondary">{{waste.description}} </p>
-        <p class = "text-secondary">{{waste.utilization}} </p>
-        <div class = "text-secondary">Код переробки: <img class="account-img" src="{{ waste.code.image.url }} " style = "width:60px;height:60px;"></div>
-      </div>
-    </div>
+
+<br>
+<form method = "GET" action = "">
+  <div class="active-cyan-4 mb-4">
+    <input class="form-control" type="text" name = "q" placeholder="Пошук" aria-label="Search" 
+    value = "{{ request.GET.q }}">
   </div>
+</form>
+<br>
+
+{% for waste in wastes %}
+<div class="media content-section" style="float: left; width: 50%; height: 300px;">
+	<div class="container">
+		<div class = "row">
+			<div class = "col-md-4 col-lg-4">
+				<div class="media">
+					<img class="account-img" src="{{ waste.image.url }}">
+				</div>
+				<div class = "text-secondary">Код переробки: <img class="account-img" src="{{ waste.code.image.url }} " 
+						style = "width:60px;height:60px;">
+				</div>
+			</div>
+			<div class = "col-md-8 col-lg-8">
+				<div class="media-body">
+					<h3 class="code-title">{{ waste.title }} </h3>
+					<p class = "text-secondary">{{waste.description}} </p>
+					<p class = "text-secondary">{{waste.utilization}} </p>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 {%endfor%}
 {% endblock content %}

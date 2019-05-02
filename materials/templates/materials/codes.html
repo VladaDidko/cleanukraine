@@ -1,5 +1,18 @@
 {% extends "blog/base.html" %}
+
 {% block content %}
+
+<br>
+<form method = "GET" action = "">
+  <div class="active-cyan-4 mb-4">
+    <input class="form-control" type="text" name = "q" placeholder="Пошук" aria-label="Search" 
+    value = "{{ request.GET.q }}">
+  </div>
+</form>
+<br>
+
+
+
 {% for code in codes %}
   <div class="media content-section" style="float: left; width: 50%;">
     <div class="media">

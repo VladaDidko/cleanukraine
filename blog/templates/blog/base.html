@@ -32,7 +32,7 @@
               <a class="nav-item nav-link" href="{% url 'post_list' %}">Блог</a>
               <a class="nav-item nav-link" href="{% url 'codes' %}">Коди переробки</a>
               <a class="nav-item nav-link" href="{% url 'wastes' %}">Предмети</a>
-              <a class="nav-item nav-link" href="{% url 'post_list' %}">Пункти прийому</a>
+              <a class="nav-item nav-link" href="{% url 'map' %}">Пункти прийому</a>
               <a class="nav-item nav-link" href="{% url 'post_list' %}">Тести</a>
             </div>
             <!-- Navbar Right Side -->
@@ -51,7 +51,7 @@
     </header>
     <main role="main" class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 col-lg-12">
           {% if messages %}
             {% for message in messages %}
               <div class = "alert alert-{{ message.tags }}">
@@ -59,7 +59,8 @@
               </div>
             {% endfor %}
           {% endif %}
-          {% block content %}{% endblock %}
+          {% block content %}
+          {% endblock %}
         
         </div>
       </div>

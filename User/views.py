@@ -11,7 +11,7 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Your account has been created! You are now able to log in')
+            messages.success(request, f'Акаунт створено! Можете авторизуватися!')
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -20,6 +20,11 @@ def register(request):
 
 @login_required
 def profile(request):
+	return render(request, 'User/profile.html')
+
+
+@login_required
+def edit_profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST,
@@ -40,5 +45,7 @@ def profile(request):
         'p_form': p_form
     }
 
-    return render(request, 'User/profile.html', context)
+    return render(request, 'User/edit_profile.html', context)
+
+
 

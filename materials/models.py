@@ -1,6 +1,7 @@
 from django.db import models
 from PIL import Image
 
+
 class Type(models.Model):
     title = models.CharField(max_length=100)
 
@@ -28,4 +29,19 @@ class Waste(models.Model):
 
 	def __str__(self):
 		return self.title
+
+
+class Station(models.Model):
+	id_station = models.IntegerField(primary_key=True)
+	title = models.CharField(max_length=100)
+	address = models.TextField()
+	district = models.CharField(max_length=20)
+	phone_numbers = models.TextField()
+	email = models.CharField(max_length=100)
+	working_hours = models.TextField()
+	description = models.TextField()
+
+	def __str__(self):
+		return self.title
+
 

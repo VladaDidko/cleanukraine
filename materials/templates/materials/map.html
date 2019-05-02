@@ -1,0 +1,82 @@
+{% extends "blog/base.html" %}
+{%block content%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        width: 100%;
+        height: 60%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+       /* height: 60%;
+        width: 100%;*/
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <form method = "GET" action = "">
+      <div class="active-cyan-4 mb-4">
+        <input class="form-control" type="text" name = "q" placeholder="Пошук" aria-label="Search" value = "{{ request.GET.q }}">
+      </div>
+    </form>
+    <br>
+    {% for station in stations %}
+    <div class = "container">
+      <div class = "row">
+        <div class = "col-md-12 col-lg-12">
+          <div class="media content-section">
+            <div class="media-body">
+              <h3 class="code-title">{{station.id_station}}. {{ station.title }} </h3>
+              <p class = "text-secondary">Адреса: {{station.address}} </p>
+              <p class = "text-secondary">Район: {{station.district}} </p>
+              <p class = "text-secondary">Номери телефонів: {{station.phone_numbers}} </p>
+              <p class = "text-secondary">Email: {{station.email}} </p>
+              <p class = "text-secondary">Робочі години: {{station.working_hours}} </p>
+              <p class = "text-secondary">Опис: {{station.description}} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    {%endfor%}
+    <script>
+      var map;
+      function initMap() {
+        var uluru = {lat: 50.447731, lng: 30.542721};
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: uluru,
+          zoom: 12
+        });
+        var labels = ['1','2']
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+          });
+        });
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+      var locations = [
+        {lat: 50.469863, lng: 30.431971},
+        {lat: 50.404199, lng: 30.524238},
+  
+      ]
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbznzDLwne39Qgjf8z0BFO_KSZkFeX1aI&callback=initMap">
+    </script>
+  </body>
+</html>
+{%endblock content%}

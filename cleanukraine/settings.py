@@ -30,11 +30,13 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+
 INSTALLED_APPS = [
-    'materials.apps.MaterialsConfig',
     'User.apps.UserConfig',
-    'crispy_forms',
     'blog.apps.BlogConfig',
+    'materials.apps.MaterialsConfig',
+    'crispy_forms',
+    'django_filters',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -8,11 +8,11 @@
                 <form method="POST">
                     {% csrf_token %}
                     <fieldset class="form-group">
-                        <legend class="border-bottom mb-4">Увійти</legend>
+                        <legend class="border-bottom mb-4">Авторизація</legend>
                         {{ form|crispy }}
                     </fieldset>
                     <div class="form-group">
-                        <button class="btn btn-outline-info" type="submit">Увійти</button>
+                        <button class="btn btn-outline-success" type="submit">Увійти</button>
                     </div>
                 </form>
                 <div class="border-top pt-3">

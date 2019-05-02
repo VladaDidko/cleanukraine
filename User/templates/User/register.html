@@ -12,12 +12,12 @@
                         {{ form|crispy }}
                      </fieldset>
                      <div class="form-group">
-                        <button class="btn btn-outline-info" type="submit">Зареєструватися</button>
+                        <button class="btn btn-outline-success" type="submit">Зареєструватися</button>
                     </div>
                 </form>
                 <div class="border-top pt-3">
                     <small class="text-muted">
-                        Маєш акаунт? <a class="ml-2" href="#">Увійти</a>
+                        Маєш акаунт? <a class="ml-2" href="{% url 'login' %}">Увійти</a>
                     </small>
                 </div>
             </div>
@@ -25,3 +25,4 @@
     </div>
 </div>
 {% endblock content %}
+

@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
 from django.contrib.auth.decorators import login_required
+import operator
+from django.db.models import Q
+
 
 def home(request):
     context = {
@@ -37,3 +40,5 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
+
+
