@@ -12,16 +12,20 @@
 <br>
 
 
-
-{% for code in codes %}
-  <div class="media content-section" style="float: left; width: 50%;">
-    <div class="media">
-      <img class="account-img" src="{{ code.image.url }}">
-      <div class="media-body">
-        <h3 class="code-title">{{ code.code }}, {{ code.abbreviation }} </h3>
-        <p class = "text-secondary">{{code.description}} </p>
+{% for type in types %}
+  <h2>{{type.title}}</h2>
+  {% for code in codes %}
+    {% if type == code.type_code %}
+      <div class="media content-section" style="float: left; width: 50%;">
+        <div class="media">
+          <img class="account-img" src="{{ code.image.url }}">
+          <div class="media-body">
+            <h3 class="code-title">{{ code.code }}, {{ code.abbreviation }} </h3>
+            <p class = "text-secondary">{{code.description}} </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    {%endif%}
+  {% endfor %}
 {%endfor%}
 {% endblock content %}

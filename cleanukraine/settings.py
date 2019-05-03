@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'materials.apps.MaterialsConfig',
     'crispy_forms',
-    'django_filters',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -135,4 +134,5 @@ LOGIN_REDIRECT_URL = 'post_list'
 LOGIN_URL = 'login'
 
 COMMENT_REDIRECT_URL = 'post_list'
+COMMENT_URL = 'post_list'
 

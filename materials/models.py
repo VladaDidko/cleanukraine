@@ -45,3 +45,23 @@ class Station(models.Model):
 		return self.title
 
 
+class Question(models.Model):
+	id_question = models.IntegerField(primary_key=True, default=0)
+	q = models.CharField(max_length=200)
+
+	def __str__(self):
+		return self.q
+
+
+class Choice(models.Model):
+	q = models.ForeignKey(Question, related_name="choice", on_delete=models.CASCADE)
+	choice = models.CharField(max_length=200)
+	position = models.IntegerField()
+	is_correct = models.BooleanField(default=False)
+
+	class Meta:
+		unique_together=[
+			("q", "choice"), 
+			("q", "position"),
+		]
+		ordering = ("position",)

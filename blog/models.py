@@ -9,14 +9,16 @@ class Post(models.Model):
     content = models.TextField(max_length=150)
     date_posted = models.DateTimeField(default=timezone.now)
 
+
     def __str__(self):
         return self.title
 
     def approved_comments(self):
     	return self.comments.filter(approved_comment=True)
 
+
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='comments')
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)

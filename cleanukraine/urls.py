@@ -35,7 +35,7 @@ urlpatterns = [
     path('codes/', materials_views.codes, name='codes'),
     path('wastes/', materials_views.wastes, name='wastes'),
     path('map/', materials_views.map, name = 'map'),
-    url(r'^search/$', materials_views.search, name='search'),
+    path('test/', materials_views.test, name='test'),
     path('', include('blog.urls')),
 
 ]

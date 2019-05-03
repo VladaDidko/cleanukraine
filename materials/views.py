@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import Type, Code, Waste, Station
+from .models import Type, Code, Waste, Station, Question, Choice
 from django.db.models import Q
-from .filters import StationFilter
+
 
 def codes(request):
 	codes = Code.objects.all()
@@ -53,7 +53,18 @@ def map(request):
 
 	return render(request,"materials/map.html",context)
 
-def search(request):
-    stations = Station.objects.all()
-    station_filter = StationFilter(request.GET, queryset=stations)
-    return render(request, 'materials/map.html', {'filter': station_filter})
+
+def test(request):
+
+	questions = Question.objects.all()
+	choices = Choice.objects.all()
+
+	context = {
+		'choices':choices,
+		'questions':questions,
+	}
+
+	return render(request,"materials/test.html", context)
+
+
+

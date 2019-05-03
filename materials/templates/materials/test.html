@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<form name = "quiz">
+	{% for question in questions %}
+		<h4>{{question.q}}</h4>
+		{% for choice in choices %}
+			{% if question == choice.q%}
+				<input type="checkbox" name="q1" value="a">{{choice.choice}}</br>
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+	<br>
+	<button class="btn btn-outline-success" type="submit" onclick="check()">Відправити</button><br>
+</form>
+
+{%endblock content%}
